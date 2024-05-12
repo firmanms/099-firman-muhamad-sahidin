@@ -36,6 +36,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  @livewireStyles
 </head>
 
 <body>
@@ -208,11 +209,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>@yield('title')</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active">@yield('title')</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -224,7 +225,7 @@
   @include("backend.shared.footer")
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  @livewireScripts
   <!-- Vendor JS Files -->
   <script src="{{ asset("backend/assets/vendor/apexcharts/apexcharts.min.js")}}"></script>
   <script src="{{ asset("backend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
@@ -236,8 +237,8 @@
   <script src="{{ asset("backend/assets/vendor/php-email-form/validate.js")}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{ asset("backend/assets/js/main.js")}}"></script>
-
+  <script src="{{ asset("backend/assets/js/main.js")}}" defer></script>
+  
 </body>
 
 </html>

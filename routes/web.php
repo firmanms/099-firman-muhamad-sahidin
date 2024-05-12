@@ -43,5 +43,15 @@ Route::name('admin.')->group(function(){
         return view('backend.dashboard');
     })->name("dashboard");
 
+    // Route::get('/admin/publikasi/category', function () {
+    //     return view('backend.livewire.post-category.index');
+    // })->name("publikasi.category");
+    // Route::get('/admin/publikasi/category', App\Livewire\PostCategory\Index::class)->name('publikasi.category');
+    // Route::view('livewire.postcategory', 'livewire.postcategory')->name('publikasi.category');
+    Route::get('/admin/publikasi/category', function () {
+        return view('backend.livewire.postcategory');
+    })->name("publikasi.category");
+    
+
 });
 
