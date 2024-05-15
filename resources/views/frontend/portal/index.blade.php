@@ -7,7 +7,7 @@
   
           <div class="row no-gutters">
             <div class="col-lg-6 video-box">
-              <img src="{{ asset("frontend/portal/assets/img/about.jpg")}}" class="img-fluid" alt="">
+              <img src="{{ asset("frontend/portal/assets/img/about.png")}}" class="img-fluid" alt="">
               <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
             </div>
   
@@ -53,14 +53,15 @@
                 <div class="pic"><img src="{{ asset("frontend/portal/assets/img/team/c1.png")}}" class="img-fluid" alt=""></div>
                 <div class="member-info">
                   <h4>Dinas Pengendalian Penduduk, Keluarga Berencana, Pemberdayaan Perempuan dan Perlindungan Anak</h4>
+                  <!-- Konten lainnya -->
+                </div>
                 </a>
-                  <div class="social">
+                <div class="social">
                     <a href=""><i class="bi bi-twitter"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
                     <a href=""><i class="bi bi-instagram"></i></a>
                     <a href=""><i class="bi bi-tiktok"></i></a>
                     <a href=""><i class="bi bi-youtube"></i></a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -70,14 +71,16 @@
                 <a href="{{ route('subportal.index') }}">
                 <div class="pic"><img src="{{ asset("frontend/portal/assets/img/team/c2.png")}}" class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>Sarah Jhonson</h4>
+                  <h4>Dinas Sosial</h4>
+                <!-- Konten lainnya -->
+                </div>
                 </a>
-                  <div class="social">
+                <div class="social">
                     <a href=""><i class="bi bi-twitter"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
                     <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
+                    <a href=""><i class="bi bi-tiktok"></i></a>
+                    <a href=""><i class="bi bi-youtube"></i></a>
                 </div>
               </div>
             </div>
@@ -87,14 +90,16 @@
                 <a href="{{ route('subportal.index') }}">
                 <div class="pic"><img src="{{ asset("frontend/portal/assets/img/team/c3.png")}}" class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>William Anderson</h4>
+                  <h4>Dinas Kesehatan</h4>
+                  <!-- Konten lainnya -->
+                </div>
                 </a>
-                  <div class="social">
+                <div class="social">
                     <a href=""><i class="bi bi-twitter"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
                     <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
+                    <a href=""><i class="bi bi-tiktok"></i></a>
+                    <a href=""><i class="bi bi-youtube"></i></a>
                 </div>
               </div>
             </div>
@@ -104,14 +109,16 @@
                 <a href="{{ route('subportal.index') }}">
                 <div class="pic"><img src="{{ asset("frontend/portal/assets/img/team/c4.png")}}" class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>Amanda Jepson</h4>
+                  <h4>Dinas Komunikasi dan Informatika</h4>
+                  <!-- Konten lainnya -->
+                </div>
                 </a>
-                  <div class="social">
+                <div class="social">
                     <a href=""><i class="bi bi-twitter"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
                     <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
+                    <a href=""><i class="bi bi-tiktok"></i></a>
+                    <a href=""><i class="bi bi-youtube"></i></a>
                 </div>
               </div>
             </div>

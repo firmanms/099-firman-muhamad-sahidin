@@ -1117,44 +1117,47 @@ section {
   padding: 15px;
   overflow: hidden;
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+  height: 450px;
+  display: flex;
+  flex-direction: column;
 }
 
-.team .member img {
+.team .member .pic img {
   border-radius: 10px;
+  width: auto;
+  height: 250px;
   overflow: hidden;
 }
 
-.team .member .member-content {
+.team .member .member-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
   padding: 0 20px 30px 20px;
 }
 
-.team .member h4 {
+.team .member .member-info h4 {
   font-weight: 700;
   margin-top: 16px;
   margin-bottom: 2px;
-  font-size: 20px;
-}
-
-.team .member span {
-  font-style: italic;
-  display: block;
-  font-size: 14px;
-  color: #6c757d;
-}
-
-.team .member p {
-  padding-top: 10px;
-  font-size: 14px;
-  font-style: italic;
-  color: #6c757d;
+  font-size: 16px;
+  text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 6;
+           line-clamp: 6; 
+   -webkit-box-orient: vertical;
 }
 
 .team .member .social {
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: auto; /* Menempatkan .social di bagian bawah */
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 10px 0 0 0; /* Memberikan sedikit ruang pada bagian bawah */
+  position: sticky; /* Membuat .social tetap pada posisi yang ditentukan */
+  bottom: 0; /* Menempatkan .social di bagian bawah */
+  background-color: white; /* Menjamin .social tetap terlihat */
 }
 
 .team .member .social a {
@@ -1178,6 +1181,7 @@ section {
   font-size: 18px;
   margin: 0 2px;
 }
+
 
 /*--------------------------------------------------------------
 # Frequently Asked Questions
