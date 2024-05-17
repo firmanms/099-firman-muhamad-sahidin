@@ -1,6 +1,7 @@
 @extends("backend.layouts.app")
 
-@section("content")
+@section('title','Multisite Perangkat Daerah')
+@section('content')
 
 <section class="section dashboard">
     <div class="row">

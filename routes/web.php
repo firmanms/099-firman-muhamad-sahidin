@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 //route portal
 Route::name('portal.')->group(function(){
 
-    Route::get('/', function () {
-        return view('frontend.portal.index');
-    })->name("index");
+    Route::get('/', [App\Http\Controllers\PortalController::class, 'index'])->name('index');
 
 });
 
@@ -51,7 +49,7 @@ Route::name('admin.')->group(function(){
     Route::get('/admin/publikasi/category', function () {
         return view('backend.livewire.postcategory');
     })->name("publikasi.category");
-    
+
 
 });
 
