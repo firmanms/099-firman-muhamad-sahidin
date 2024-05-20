@@ -31,25 +31,22 @@ Route::name('subportal.')->group(function(){
 });
 
 //route admin
-Route::name('admin.')->group(function(){
+// Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::name('admin.')->group(function(){
 
-    Route::get('/login', function () {
-        return view('backend.login');
-    })->name("login");
+        Route::get('/login', function () {
+            return view('backend.login');
+        })->name("login");
 
-    Route::get('/admin', function () {
-        return view('backend.dashboard');
-    })->name("dashboard");
+        Route::get('/admin', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('dashboard');
 
-    // Route::get('/admin/publikasi/category', function () {
-    //     return view('backend.livewire.post-category.index');
-    // })->name("publikasi.category");
-    // Route::get('/admin/publikasi/category', App\Livewire\PostCategory\Index::class)->name('publikasi.category');
-    // Route::view('livewire.postcategory', 'livewire.postcategory')->name('publikasi.category');
-    Route::get('/admin/publikasi/category', function () {
-        return view('backend.livewire.postcategory');
-    })->name("publikasi.category");
+        Route::get('/admin/publikasi/category', function () {
+            return view('backend.livewire.postcategory');
+        })->name("publikasi.category");
 
 
-});
+    });
+
+// });
+
 

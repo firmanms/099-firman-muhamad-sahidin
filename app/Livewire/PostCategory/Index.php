@@ -4,10 +4,15 @@ namespace App\Livewire\PostCategory;
 
 use App\Models\Post_category;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
     public $name,$postId, $updatePost = false, $addPost = true;
+    public $search = '';
+    public $sortField = 'name';
+    public $sortAsc = true;
 
     /**
      * List of add/edit form rules
@@ -28,14 +33,21 @@ class Index extends Component
     /**
      * render the post data
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */    
+     */
     public function render()
     {
-    
+
+        // return view('backend.livewire.post-category.index', [
+        //     'posts_category' => Post_category::get()
+        // ]);
+        $posts_category = Post_category::where('name', 'like', '%' . $this->search . '%')
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate(10);
+
         return view('backend.livewire.post-category.index', [
-            'posts_category' => Post_category::get()
+            'posts_category' => $posts_category
         ]);
-        
+
     }
 
     /**
@@ -135,5 +147,16 @@ class Index extends Component
         } catch (\Exception $e) {
             session()->flash('error', "Ada Kesalahan!!");
         }
+    }
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortAsc = !$this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
+
+        $this->sortField = $field;
     }
 }
