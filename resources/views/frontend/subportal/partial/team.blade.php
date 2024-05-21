@@ -2,8 +2,8 @@
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-            <h2>Our Team</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+            <h2>Struktural</h2>
+            <p>{{ $sites->name }}</p>
         </div>
 
         <div class="row">
@@ -14,7 +14,7 @@
                         <div class="pic"><img src="{{ asset('frontend/portal/assets/img/team/team-1.jpg') }}"
                                 class="img-fluid" alt=""></div>
                         <div class="member-info">
-                            <h4>Firmank</h4>
+                            <h4>Firman</h4>
                     </a>
                     <span>Chief Executive Officer</span>
                     <div class="social">

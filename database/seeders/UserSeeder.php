@@ -44,5 +44,13 @@ class UserSeeder extends Seeder
             'email'	    => 'dp2kbp3a@multisite.test',
             'password'	=> bcrypt('Password')
         ]);
+
+        User::create([
+            'id'        => 5,
+            'role_id'   => 2,
+            'name'	    => 'Admin Bkd',
+            'email'	    => 'bkd@multisite.test',
+            'password'	=> bcrypt('Password')
+        ]);
     }
 }

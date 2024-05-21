@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title',255);
             $table->mediumText('slug');
             $table->longText('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->date('date_publish');
             $table->timestamps();
         });

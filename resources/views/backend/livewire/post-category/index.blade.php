@@ -79,7 +79,7 @@
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Pencarian</label>
                                 <div class="col-sm-10">
-                                    <input type="text" wire:model.debounce.300ms="search" placeholder="Search Users..." />
+                                    <input type="text"  class="form-control" placeholder="Cari" wire:model="search" />
                                 </div>
                             </div>
                             <!-- Small tables -->
@@ -115,6 +115,7 @@
                               </tbody>
                             </table>
                             <!-- End small tables -->
+                            {{ $posts_category->links() }}
 
                         </div>
 

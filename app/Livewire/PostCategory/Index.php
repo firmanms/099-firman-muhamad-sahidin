@@ -8,11 +8,14 @@ use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithPagination;
+
     public $name,$postId, $updatePost = false, $addPost = true;
     public $search = '';
     public $sortField = 'name';
     public $sortAsc = true;
+    use WithPagination;
+    protected $paginationTheme='bootstrap';
+    protected $updatesQueryString = ['search'];
 
     /**
      * List of add/edit form rules
@@ -37,16 +40,19 @@ class Index extends Component
     public function render()
     {
 
-        // return view('backend.livewire.post-category.index', [
-        //     'posts_category' => Post_category::get()
-        // ]);
-        $posts_category = Post_category::where('name', 'like', '%' . $this->search . '%')
-                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                    ->paginate(10);
-
-        return view('backend.livewire.post-category.index', [
-            'posts_category' => $posts_category
+        return view('backend.livewire.post-category.index',  [
+            'posts_category' => $this->search === null ?
+                        Post_category::latest()->paginate(5) :
+                        Post_category::where('name', 'like', '%' . $this->search . '%')->latest()->paginate(5),
         ]);
+
+        // $posts_category = Post_category::where('name', 'like', '%' . $this->search . '%')
+        //             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+        //             ->paginate(2);
+
+        // return view('backend.livewire.post-category.index', [
+        //     'posts_category' => $posts_category
+        // ]);
 
     }
 
@@ -158,5 +164,8 @@ class Index extends Component
         }
 
         $this->sortField = $field;
+    }
+    public function updatingSearch(){
+        $this->resetPage();
     }
 }

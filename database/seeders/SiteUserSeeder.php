@@ -36,5 +36,11 @@ class SiteUserSeeder extends Seeder
             'sites_id'   => 4,
             'user_id'   => 4,
         ]);
+
+        Sites_user::create([
+            'id'        => 5,
+            'sites_id'   => 5,
+            'user_id'   => 5,
+        ]);
     }
 }
