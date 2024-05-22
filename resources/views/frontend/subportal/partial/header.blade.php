@@ -12,9 +12,9 @@
           <li><a class="nav-link scrollto" href="{{ url( $sites->slug )}}">Home</a></li>
           <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ route('subportal.showpage') }}">Profil</a></li>
-              <li><a href="{{ route('subportal.showpage') }}">Visi dan Misi</a></li>
-              <li><a href="{{ route('subportal.showpage') }}">Struktur Organisasi</a></li>
+              <li><a href="{{ url( $sites->slug )}}/page/profil">Profil</a></li>
+              <li><a href="{{ url( $sites->slug )}}/page/visi-dan-misi">Visi dan Misi</a></li>
+              <li><a href="{{ url( $sites->slug )}}/page/struktur-organisasi">Struktur Organisasi</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="{{ url( $sites->slug )}}/blog">Berita</a></li>

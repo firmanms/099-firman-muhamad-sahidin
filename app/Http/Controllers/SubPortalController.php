@@ -37,4 +37,14 @@ class SubPortalController extends Controller
         $recentpost = Post::where('sites_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
         return view('frontend.subportal.singleblog',compact('sites','post','recentpost','categories'));
     }
+
+    public function showpage(string $slug,$slugpost)
+    {
+        $sites      = Sites::where('slug',$slug)->firstOrFail();
+        $sitesid = $sites->id;
+        $categories = Post_category::withCount('posts')->get();
+        $post       = Post::where('slug',$slugpost)->firstOrFail();
+        $recentpost = Post::where('sites_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
+        return view('frontend.subportal.blog',compact('sites','post','recentpost','categories'));
+    }
 }
