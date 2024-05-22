@@ -1,6 +1,20 @@
 Firman Muhamad Sahidin-GROUP 4<br>
 Multisite Perangkat Daerah<br>
 Pengembangan website profil perangkat daerah yang memudahkan proses interoperabilitas, one input for many purpose untuk standarisasi website perangkat daerah<br>
+<br>
+<br>
+Installasi
+1. clone repository
+2. Copy .env.example dan rename jadi .env
+3. Sesuaikan user, password dan nama database di .env
+4. buka terminal dan arahkan ke folder projet
+5. ketik php artisan key:generate
+6. ketik composer install
+7. ketik php artisan migrate:refresh --seed
+8. ketik php artisan serve
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
