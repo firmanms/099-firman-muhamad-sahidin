@@ -54,7 +54,7 @@
                             <div class="entry-footer">
                                 <i class="bi bi-folder"></i>
                                 <ul class="cats">
-                                    <li><a href="#">Business</a></li>
+                                    <li><a href="#">{{$post->categories->name}}</a></li>
                                 </ul>
                             </div>
 

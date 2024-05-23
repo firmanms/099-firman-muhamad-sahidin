@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sites_user', function (Blueprint $table) {
+        Schema::create('site_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sites_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('site_id');
             $table->timestamps();
+
+            // Menambahkan foreign key
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
         });
     }
 

@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SKPD - @yield('title')</title>
+  <title>{{$sites->name}} - @yield('title')</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset("frontend/subportal/assets/img/favicon.png")}}" rel="icon">
-  <link href="{{ asset("frontend/subportal/assets/img/apple-touch-icon.png")}}" rel="apple-touch-icon">
+  <link href="{{ asset("frontend/portal/assets/img/jabar.png")}}" rel="icon">
+  <link href="{{ asset("frontend/portal/assets/img/jabar.png")}}" rel="jabar">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
@@ -34,6 +34,13 @@
   * Updated: Mar 17 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <!-- =======================================================
+  * Aplikasi: Multisite Perangkat Daerah
+  * Dibuat oleh : Firman Muhamad Sahidin
+  * Untuk Project: Jabar Digital Academy
+  * Linkedin : https://www.linkedin.com/in/firman-muhamad-sahidin-5345a6201
   ======================================================== -->
 </head>
 

@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $countsite=Sites::count();
         $countpost=Post::count();
         $listsite=Sites::with('users')->get();
-        $list_post=Post::orderBy('date_publish','asc')->take(6)->get();
+        $list_post=Post::orderBy('date_publish','desc')->take(6)->get();
         // dd($listsite);
         return view('backend.dashboard',
         compact('countuser','countsite','countpost'

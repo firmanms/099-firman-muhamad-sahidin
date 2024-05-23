@@ -35,6 +35,13 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+   <!-- =======================================================
+  * Aplikasi: Multisite Perangkat Daerah
+  * Dibuat oleh : Firman Muhamad Sahidin
+  * Untuk Project: Jabar Digital Academy
+  * Linkedin : https://www.linkedin.com/in/firman-muhamad-sahidin-5345a6201
+  ======================================================== -->
 </head>
 
 <body>

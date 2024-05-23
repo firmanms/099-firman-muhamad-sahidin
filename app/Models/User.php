@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function sites(): BelongsToMany
     {
-        return $this->belongsToMany(Sites::class);
+        return $this->belongsToMany(Sites::class,'site_user','user_id','id');
     }
 
     public function role()

@@ -8,7 +8,7 @@
 
       <div class="row">
         @foreach ($list_skpd as $item)
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" style="margin-bottom: 30px;">
                 <div class="member">
                 <a href="{{ url( $item->slug )}}">
                 <div class="pic"><img src="{{ $item->logo === null ? asset("frontend/portal/assets/img/jabar.png") : url("storage/".$item->logo ."")}}" class="img-fluid" alt=""></div>

@@ -14,7 +14,7 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         Post::create([
-            'sites_id'          => 2,
+            'site_id'          => 2,
             'post_category_id'	=> 1,
             'title'	            => 'Apa Itu Diskominfo',
             'slug'          	=> 'apa-itu-diskominfo',
@@ -23,7 +23,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 2,
+            'site_id'          => 2,
             'post_category_id'	=> 2,
             'title'	            => 'Kegiatan Diskominfo',
             'slug'          	=> 'kegiatan-diskominfo',
@@ -32,7 +32,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 2,
+            'site_id'          => 2,
             'post_category_id'	=> 3,
             'title'	            => 'Pengumuman Diskominfo',
             'slug'          	=> 'pengumuman-diskominfo',
@@ -41,7 +41,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 3,
+            'site_id'          => 3,
             'post_category_id'	=> 1,
             'title'	            => 'Apa Itu dinkes',
             'slug'          	=> 'apa-itu-dinkes',
@@ -50,7 +50,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 3,
+            'site_id'          => 3,
             'post_category_id'	=> 2,
             'title'	            => 'Kegiatan dinkes',
             'slug'          	=> 'kegiatan-dinkes',
@@ -59,7 +59,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 3,
+            'site_id'          => 3,
             'post_category_id'	=> 3,
             'title'	            => 'Pengumuman dinkes',
             'slug'          	=> 'pengumuman-dinkes',
@@ -68,7 +68,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 4,
+            'site_id'          => 4,
             'post_category_id'	=> 1,
             'title'	            => 'Apa Itu dp2kbp3a',
             'slug'          	=> 'apa-itu-dp2kbp3a',
@@ -77,7 +77,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 4,
+            'site_id'          => 4,
             'post_category_id'	=> 2,
             'title'	            => 'Kegiatan dp2kbp3a',
             'slug'          	=> 'kegiatan-dp2kbp3a',
@@ -86,7 +86,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 4,
+            'site_id'          => 4,
             'post_category_id'	=> 3,
             'title'	            => 'Pengumuman dp2kbp3a',
             'slug'          	=> 'pengumuman-dp2kbp3a',
@@ -95,7 +95,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 5,
+            'site_id'          => 5,
             'post_category_id'	=> 1,
             'title'	            => 'Apa Itu bkd',
             'slug'          	=> 'apa-itu-bkd',
@@ -104,7 +104,7 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 5,
+            'site_id'          => 5,
             'post_category_id'	=> 2,
             'title'	            => 'Kegiatan bkd',
             'slug'          	=> 'kegiatan-bkd',
@@ -113,13 +113,42 @@ class PostSeeder extends Seeder
         ]);
 
         Post::create([
-            'sites_id'          => 5,
+            'site_id'          => 5,
             'post_category_id'	=> 3,
             'title'	            => 'Pengumuman bkd',
             'slug'          	=> 'pengumuman-bkd',
             'description'       => 'Pengumuman dari bkd perihal akan dilaksanakannya seleksi penerimaan pegawai non PNS',
             'date_publish'      => '2024-05-20',
         ]);
+
+        Post::create([
+            'site_id'          => 6,
+            'post_category_id'	=> 1,
+            'title'	            => 'Apa Itu dinsos',
+            'slug'          	=> 'apa-itu-dinsos',
+            'description'       => 'dinsos mempunyai tugas membantu Bupati melaksanakan urusan pemerintahan ',
+            'date_publish'      => '2024-05-20',
+        ]);
+
+        Post::create([
+            'site_id'          => 6,
+            'post_category_id'	=> 2,
+            'title'	            => 'Kegiatan dinsos',
+            'slug'          	=> 'kegiatan-dinsos',
+            'description'       => 'Tim Teknis Monitoring kegiatan dan evaluasi terhadap laporan yang ada',
+            'date_publish'      => '2024-05-20',
+        ]);
+
+        Post::create([
+            'site_id'          => 6,
+            'post_category_id'	=> 3,
+            'title'	            => 'Pengumuman dinsos',
+            'slug'          	=> 'pengumuman-dinsos',
+            'description'       => 'Pengumuman dari dinsos perihal akan dilaksanakannya seleksi penerimaan pegawai non PNS',
+            'date_publish'      => '2024-05-20',
+        ]);
+
+
 
 
     }

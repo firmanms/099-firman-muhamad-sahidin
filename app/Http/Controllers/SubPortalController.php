@@ -13,7 +13,7 @@ class SubPortalController extends Controller
     {
         $sites = Sites::where('slug',$slug)->firstOrFail();
         $sitesid = $sites->id;
-        $list_post=Post::where('sites_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
+        $list_post=Post::where('site_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
 
         return view('frontend.subportal.index',compact('sites','list_post'));
     }
@@ -23,8 +23,8 @@ class SubPortalController extends Controller
         $sites = Sites::where('slug',$slug)->firstOrFail();
         $sitesid = $sites->id;
         $categories = Post_category::withCount('posts')->get();
-        $list_post=Post::where('sites_id',$sitesid)->orderBy('date_publish','asc')->paginate(5);
-        $recentpost = Post::where('sites_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
+        $list_post=Post::where('site_id',$sitesid)->orderBy('date_publish','asc')->paginate(5);
+        $recentpost = Post::where('site_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
         return view('frontend.subportal.blog',compact('sites','list_post','recentpost','categories'));
     }
 
@@ -34,17 +34,20 @@ class SubPortalController extends Controller
         $sitesid = $sites->id;
         $categories = Post_category::withCount('posts')->get();
         $post       = Post::where('slug',$slugpost)->firstOrFail();
-        $recentpost = Post::where('sites_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
+        $a=$post->categories;
+        // dd($a);
+        $recentpost = Post::where('site_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
         return view('frontend.subportal.singleblog',compact('sites','post','recentpost','categories'));
     }
 
-    public function showpage(string $slug,$slugpost)
+    public function showpage(string $slug,$slugpage)
     {
         $sites      = Sites::where('slug',$slug)->firstOrFail();
         $sitesid = $sites->id;
         $categories = Post_category::withCount('posts')->get();
-        $post       = Post::where('slug',$slugpost)->firstOrFail();
-        $recentpost = Post::where('sites_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
-        return view('frontend.subportal.blog',compact('sites','post','recentpost','categories'));
+        $slugpages=$slugpage;
+        // $page       = Page::where('slug',$slugpage)->firstOrFail();
+        $recentpost = Post::where('site_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
+        return view('frontend.subportal.page',compact('sites','recentpost','categories','slugpages'));
     }
 }

@@ -1,9 +1,9 @@
 @extends("backend.layouts.app")
 
 @section("content")
-@livewire('post-category.index')
+@livewire('post.index')
 @endsection
 
 @section('title')
-        Kategori Posting
+        Posting
 @endsection

@@ -11,7 +11,7 @@ class PortalController extends Controller
     public function index(){
         $site=Sites::first();
         $list_skpd=Sites::where('id','>',1)->orderBy('name','asc')->get();
-        $list_post=Post::orderBy('date_publish','asc')->take(9)->get();
+        $list_post=Post::orderBy('date_publish','desc')->take(9)->get();
         // dd($list_post);
         return view('frontend.portal.index',
         compact('site','list_skpd','list_post'));

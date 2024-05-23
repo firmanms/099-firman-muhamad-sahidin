@@ -19,11 +19,11 @@
         <!-- End Recent Blog Posts Section -->
 
         <!-- ======= Related Link Section ======= -->
-        @include('frontend.subportal.partial.relatedlink')
+        {{-- @include('frontend.subportal.partial.relatedlink') --}}
         <!-- End Related Link Section -->
 
         <!-- ======= Frequently Asked Questions Section ======= -->
-        @include('frontend.subportal.partial.faq')
+        {{-- @include('frontend.subportal.partial.faq') --}}
         <!-- End Frequently Asked Questions Section -->
 
         <!-- ======= Contact Us Section ======= -->

@@ -16,7 +16,7 @@
         </a>
         <ul id="publication-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="publication-alerts.html">
+            <a href="{{ route('admin.publikasi.post') }}" class="{{ request()->routeIs('admin.publikasi.post') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Posting</span>
             </a>
           </li>
@@ -25,15 +25,15 @@
               <i class="bi bi-circle"></i><span>Kategori Posting</span>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a href="publication-alerts.html">
               <i class="bi bi-circle"></i><span>Halaman</span>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </li><!-- End Components Nav -->
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#setting-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-gear"></i><span>Pengaturan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -54,7 +54,7 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Components Nav -->
+      </li> End Components Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#user-nav" data-bs-toggle="collapse" href="#">
@@ -66,14 +66,14 @@
               <i class="bi bi-circle"></i><span>Kelola Pengguna</span>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a href="user-accordion.html">
               <i class="bi bi-circle"></i><span>Role</span>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </li><!-- End Components Nav -->
 
     </ul>
 
-  </aside><!-- End Sidebar-->    
+  </aside><!-- End Sidebar-->

@@ -28,7 +28,7 @@ class Sites extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'site_user','site_id','id');
     }
 
     public function posts(): HasMany

@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'sites_id',
+        'site_id',
         'post_category_id',
         'title',
         'slug',
@@ -22,11 +22,11 @@ class Post extends Model
 
     public function sites(): BelongsTo
     {
-        return $this->belongsTo(Sites::class);
+        return $this->belongsTo(Sites::class,'site_id','id');
     }
 
     public function categories(): BelongsTo
     {
-        return $this->belongsTo(Post_category::class);
+        return $this->belongsTo(Post_category::class,'post_category_id','id');
     }
 }

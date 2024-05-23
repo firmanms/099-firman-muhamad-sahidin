@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset("backend/assets/img/favicon.png")}}" rel="icon">
-  <link href="{{ asset("assets/img/apple-touch-icon.png")}}" rel="apple-touch-icon">
+  <link href="{{ asset("frontend/portal/assets/img/jabar.png")}}" rel="icon">
+  <link href="{{ asset("frontend/portal/assets/img/jabar.png")}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -45,19 +45,19 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{{ asset("backend/assets/img/logo.png")}}" alt="">
+      <a href="{{ route('admin.dashboard') }}" class="logo d-flex align-items-center">
+        <img src="{{ asset("frontend/portal/assets/img/jabar.png")}}" alt="">
         <span class="d-none d-lg-block">MultiSite</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    <div class="search-bar">
+    <!--<div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
-    </div><!-- End Search Bar -->
+    </div> End Search Bar -->
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -146,7 +146,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{ asset("backend/assets/img/profile-img.jpg")}}")}}" alt="Profile" class="rounded-circle">
+            <img src="{{ asset("frontend/portal/assets/img/jabar.png")}}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -160,21 +160,21 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.profile') }}">
                 <i class="bi bi-person"></i>
-                <span>My Profile</span>
+                <span>Profil Saya</span>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
-            <li>
+            {{-- <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
-            </li>
+            </li> --}}
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -182,7 +182,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
                 <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
+                <span>Butuh Bantuan?</span>
               </a>
             </li>
             <li>
@@ -192,7 +192,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Keluar</span>
               </a>
             </li>
 
@@ -212,7 +212,7 @@
       <h1>@yield('title')</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
           <li class="breadcrumb-item active">@yield('title')</li>
         </ol>
       </nav>

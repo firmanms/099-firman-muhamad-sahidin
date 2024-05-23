@@ -51,7 +51,7 @@
                             <div class="entry-content">
                                 {{$item->description}}
                                 <div class="read-more">
-                                    <a href="{{ url( $sites->slug )}}/blog/{{$item->slug}}">Read More</a>
+                                    <a href="{{ url( $sites->slug )}}/blog/{{$item->slug}}">Selengkapnya</a>
                                 </div>
                             </div>
 

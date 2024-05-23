@@ -15,11 +15,11 @@
     <!-- End Recent Blog Posts Section -->
 
     <!-- ======= related link Section ======= -->
-    @include('frontend.portal.partial.relatedlink')
+    {{-- @include('frontend.portal.partial.relatedlink') --}}
     <!-- End related link Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    @include('frontend.portal.partial.faq')
+    {{-- @include('frontend.portal.partial.faq') --}}
     <!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Contact Us Section ======= -->

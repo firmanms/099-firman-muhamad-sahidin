@@ -82,5 +82,19 @@ class SiteSeeder extends Seeder
             'whatsapp'      => '62820000000',
             'email'         => 'bkd@multisite.test',
         ]);
+
+        Sites::create([
+            'id'            => 6,
+            'name'          => 'Dinas Sosial',
+            'singkatan'     => 'DINSOS',
+            'slug'          => 'dinsos',
+            'name_leader'   => 'Baginda Firman Sahidin,S.ST.,MT',
+            'greeting'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            'video_profile' => 'https://www.youtube.com/watch?v=ByAn8DF8Ykk',
+            'address'       => 'Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115',
+            'telp'          => '022-00000000',
+            'whatsapp'      => '62820000000',
+            'email'         => 'dinsos@multisite.test',
+        ]);
     }
 }

@@ -42,6 +42,14 @@ Route::name('subportal.')->group(function(){
             return view('backend.livewire.postcategory');
         })->name("publikasi.category");
 
+        Route::get('/admin/publikasi/post', function () {
+            return view('backend.livewire.post');
+        })->name("publikasi.post");
+
+        Route::get('/admin/profile', function () {
+            return view('backend.profile');
+        })->name("profile");
+
 
     });
 
