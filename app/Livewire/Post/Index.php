@@ -4,6 +4,7 @@ namespace App\Livewire\Post;
 
 use App\Models\Post;
 use App\Models\Post_category;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Str;
@@ -50,23 +51,24 @@ class Index extends Component
      */
     public function render()
     {
-
-        return view('backend.livewire.post.index',  [
-            'posts' => $this->search === null ?
-                        Post::latest()->paginate(6) :
-                        Post::where('title', 'like', '%' . $this->search . '%')->latest()->paginate(6),
-            'post_category'=>Post_category::all(),
-            'site_id'=>1,
-        ]);
-
-        // $posts = Post::where('name', 'like', '%' . $this->search . '%')
-        //             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-        //             ->paginate(2);
-
-        // return view('backend.livewire.post-category.index', [
-        //     'posts' => $posts
-        // ]);
-
+        if (Auth::user()->role->name === 'Admin'){
+            return view('backend.livewire.post.index',  [
+                'posts' => $this->search === null ?
+                            Post::latest()->paginate(6) :
+                            Post::where('title', 'like', '%' . $this->search . '%')->latest()->paginate(6),
+                'post_category'=>Post_category::all(),
+                $this->site_id=Auth::user()->id,
+            ]);
+        }else{
+            return view('backend.livewire.post.index',  [
+                'posts' => $this->search === null ?
+                            Post::where('site_id',Auth::user()->id)->latest()->paginate(6) :
+                            Post::where('site_id',Auth::user()->id)->where('title', 'like', '%' . $this->search . '%')->latest()->paginate(6),
+                'post_category'=>Post_category::all(),
+                $this->site_id=Auth::user()->id,
+            ]);
+        }
+        
     }
 
     /**

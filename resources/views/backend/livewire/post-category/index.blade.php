@@ -105,8 +105,10 @@
                                     <td>{{$item->name}}</td>
                                     <td> <button wire:click="edit({{ $item->id }})"
                                         class="btn btn-primary btn-sm">Edit</button>
-                                    <button  onclick="return confirm('Yakin data ingin dihapus?')" wire:click="destroy({{ $item->id }})"
-                                        class="btn btn-danger btn-sm">Delete</button></td>
+                                    {{-- <button  onclick="return confirm('Yakin data ingin dihapus?')" wire:click="destroy({{ $item->id }})"
+                                        class="btn btn-danger btn-sm">Delete</button> --}}
+                                        <button onclick="deleteCategory({{$item->id}})" class="btn btn-danger btn-sm">Delete</button>
+                                    </td>
                                   </tr>
 
                                 @endforeach
@@ -124,5 +126,12 @@
                 </div>
             </div>
         </section>
+
+        <script>
+            function deleteCategory(id){
+                if(confirm("Are you sure to delete this record?"))
+                    window.livewire.emit('deleteCategory',id);
+            }
+        </script>
 
 </div>

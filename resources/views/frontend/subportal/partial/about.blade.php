@@ -3,7 +3,7 @@
 
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
-                <img src="{{ asset('frontend/subportal/assets/img/about.png') }}" class="img-fluid" alt="">
+                <img src="{{ $sites->logo === null ? asset("frontend/subportal/assets/img/about.png") : url("storage/".$sites->logo ."")}}" class="img-fluid" alt="">
                 <a href="{{ $sites->video_profile }}" class="venobox play-btn mb-4"
                     data-vbtype="video" data-autoplay="true"></a>
             </div>

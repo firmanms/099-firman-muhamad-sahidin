@@ -72,7 +72,7 @@ class SiteSeeder extends Seeder
         Sites::create([
             'id'            => 5,
             'name'          => 'Badan Kepegawaian Daerah',
-            'singkatan'     => 'BKAD',
+            'singkatan'     => 'BKD',
             'slug'          => 'bkd',
             'name_leader'   => 'Iman Firman Sahidin,S.ST.,MT',
             'greeting'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',

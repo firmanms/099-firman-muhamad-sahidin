@@ -34,7 +34,7 @@
         </div>
 
         <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.606591552028!2d107.6187675!3d-6.9023643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e64c8710213b%3A0xc98ef091ea4e89e8!2sKantor%20Pemerintah%20Daerah%20Provinsi%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1715831595996!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="{{ $sites->maps === null ? ("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.606591552028!2d107.6187675!3d-6.9023643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e64c8710213b%3A0xc98ef091ea4e89e8!2sKantor%20Pemerintah%20Daerah%20Provinsi%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1715831595996!5m2!1sid!2sid") : $sites->maps }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
       </div>

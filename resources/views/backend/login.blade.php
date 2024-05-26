@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>Login - Multisite Perangkat Daerah</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset("backend/assets/img/favicon.png")}}" rel="icon">
-  <link href="{{ asset("assets/img/apple-touch-icon.png")}}" rel="apple-touch-icon">
+  <link href="{{ asset("frontend/portal/assets/img/jabar.png")}}" rel="icon">
+  <link href="{{ asset("frontend/portal/assets/img/jabar.png")}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -50,8 +50,8 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="{{ asset("backend/assets/img/logo.png")}}" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                  <img src="{{ asset("frontend/portal/assets/img/jabar.png")}}" alt="">
+                  <span class="d-none d-lg-block">Multisite</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -60,25 +60,32 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Login</h5>
+                    <p class="text-center small">Masukan Email dan Password untuk login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
-
+                  <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('login') }}">
+                    @csrf
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                      <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        {{-- <span class="input-group-text" id="inputGroupPrepend">@</span> --}}
+                        <input type="email" name="email" class="form-control" id="yourUsername" value="{{ old('email') }}" required>
+                        <div class="invalid-feedback">Mohon tulis email dengan benar!</div>
+                        @error('email')
+                        <div class="error"><span>{{ $message }}</span></div>
+                        @enderror
+                        
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
+                      <div class="invalid-feedback">Masukan Password!</div>
+                      @error('password')
+                        <div class="error"><span>{{ $message }}</span></div>
+                        @enderror
                     </div>
 
                     <div class="col-12">
@@ -88,8 +95,8 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      {{-- <button class="btn btn-primary w-100" type="submit">Login</button> --}}
-                      <a href="{{ route('admin.dashboard') }}" class="btn btn-primary w-100" type="submit">Login</a>
+                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                      {{-- <a href="{{ route('admin.dashboard') }}" class="btn btn-primary w-100" type="submit">Login</a> --}}
                     </div>
                     <div class="col-12">
                       {{-- <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p> --}}

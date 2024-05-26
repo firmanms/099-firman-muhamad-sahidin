@@ -45,10 +45,17 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
+      @if(Auth::user()->role->name === 'Admin')
       <a href="{{ route('admin.dashboard') }}" class="logo d-flex align-items-center">
         <img src="{{ asset("frontend/portal/assets/img/jabar.png")}}" alt="">
         <span class="d-none d-lg-block">MultiSite</span>
       </a>
+      @else
+      <a href="{{ route('user.dashboard') }}" class="logo d-flex align-items-center">
+        <img src="{{ asset("frontend/portal/assets/img/jabar.png")}}" alt="">
+        <span class="d-none d-lg-block">MultiSite</span>
+      </a>
+      @endif
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
@@ -147,23 +154,30 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="{{ asset("frontend/portal/assets/img/jabar.png")}}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6>{{ Auth::user()->name }}</h6>
+              {{-- <span>{{ Auth::user()->name }}</span> --}}
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
+              @if(Auth::user()->role->name === 'Admin')
               <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.profile') }}">
                 <i class="bi bi-person"></i>
                 <span>Profil Saya</span>
               </a>
+              @else
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('user.profile') }}">
+                <i class="bi bi-person"></i>
+                <span>Profil Saya</span>
+              </a>
+              @endif
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -190,10 +204,13 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Keluar</span>
               </a>
+              </form>
             </li>
 
           </ul><!-- End Profile Dropdown Items -->
@@ -212,7 +229,11 @@
       <h1>@yield('title')</h1>
       <nav>
         <ol class="breadcrumb">
+          @if(Auth::user()->role->name === 'Admin')
           <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+          @else
+          <li class="breadcrumb-item"><a href="{{ route('user.dashboard') }}">Home</a></li>
+          @endif
           <li class="breadcrumb-item active">@yield('title')</li>
         </ol>
       </nav>

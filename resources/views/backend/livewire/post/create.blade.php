@@ -2,8 +2,8 @@
 <div>
 <form class="row g-3">
   <div class="col-md-12">
-    <input type="text" class="form-control @error('site_id') is-invalid @enderror" id="validationDefault01"
-             placeholder="Enter title" wire:model="site_id" value="{{$site_id}}">
+    <input type="hidden" class="form-control @error('site_id') is-invalid @enderror" id="validationDefault01"
+             placeholder="Enter title" wire:model="site_id">
       <label for="validationDefault01" class="form-label">Judul</label>
       <input type="text" class="form-control @error('title') is-invalid @enderror" id="validationDefault01"
              placeholder="Enter title" wire:model="title">

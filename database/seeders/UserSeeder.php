@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
 
         User::create([
             'id'        => 2,
-            'role_id'   => 2,
+            'role_id'   => 1,
             'name'	    => 'Admin Diskominfo',
             'email'	    => 'diskominfo@multisite.test',
             'password'	=> bcrypt('Password')

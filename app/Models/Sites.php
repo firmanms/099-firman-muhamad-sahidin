@@ -24,6 +24,12 @@ class Sites extends Model
         'whatsapp',
         'email',
         'logo',
+        'tw',
+        'fb',
+        'ig',
+        'tiktok',
+        'yt',
+        'maps',
     ];
 
     public function users(): BelongsToMany

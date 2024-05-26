@@ -25,6 +25,12 @@ return new class extends Migration
             $table->string('whatsapp')->nullable();
             $table->string('email')->nullable();
             $table->string('logo')->nullable();
+            $table->string('tw')->default('https://twitter.com/#');
+            $table->string('fb')->default('https://facebook.com/#');
+            $table->string('ig')->default('https://instagram.com/#');
+            $table->string('tiktok')->default('https://tiktok.com/#');
+            $table->string('yt')->default('https://youtube.com/#');
+            $table->longText('maps')->nullable();
             $table->timestamps();
         });
     }

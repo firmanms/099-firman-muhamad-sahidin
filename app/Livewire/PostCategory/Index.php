@@ -17,6 +17,10 @@ class Index extends Component
     protected $paginationTheme='bootstrap';
     protected $updatesQueryString = ['search'];
 
+    protected $listeners = [
+        'deleteCategory'=>'destroy'
+    ];
+
     /**
      * List of add/edit form rules
      */
@@ -46,13 +50,6 @@ class Index extends Component
                         Post_category::where('name', 'like', '%' . $this->search . '%')->latest()->paginate(5),
         ]);
 
-        // $posts_category = Post_category::where('name', 'like', '%' . $this->search . '%')
-        //             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-        //             ->paginate(2);
-
-        // return view('backend.livewire.post-category.index', [
-        //     'posts_category' => $posts_category
-        // ]);
 
     }
 
@@ -145,13 +142,21 @@ class Index extends Component
      * @param mixed $id
      * @return void
      */
-    public function destroy($id)
-    {
-        try {
+    // public function destroy($id)
+    // {
+    //     try {
+    //         Post_category::find($id)->delete();
+    //         session()->flash('success', "Kategori telah dihapus!!");
+    //     } catch (\Exception $e) {
+    //         session()->flash('error', "Ada Kesalahan!!");
+    //     }
+    // }
+    public function destroy($id){
+        try{
             Post_category::find($id)->delete();
-            session()->flash('success', "Kategori telah dihapus!!");
-        } catch (\Exception $e) {
-            session()->flash('error', "Ada Kesalahan!!");
+            session()->flash('success',"Category Deleted Successfully!!");
+        }catch(\Exception $e){
+            session()->flash('error',"Something goes wrong while deleting category!!");
         }
     }
 

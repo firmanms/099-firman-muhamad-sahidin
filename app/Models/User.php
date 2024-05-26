@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,7 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
+    
 
     /**
      * The attributes that should be hidden for serialization.
@@ -51,13 +54,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Sites::class,'site_user','user_id','id');
     }
 
-    public function role()
+    public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);
     }
 
-    public function isAdmin()
-    {
-        return $this->role->name === 'admin';
-    }
 }

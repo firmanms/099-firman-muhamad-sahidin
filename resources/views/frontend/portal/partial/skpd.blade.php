@@ -18,11 +18,11 @@
                 </div>
                 </a>
                 <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-tiktok"></i></a>
-                    <a href=""><i class="bi bi-youtube"></i></a>
+                    <a href="{{ $item->tw }}"><i class="bi bi-twitter"></i></a>
+                    <a href="{{ $item->fb }}"><i class="bi bi-facebook"></i></a>
+                    <a href="{{ $item->ig }}"><i class="bi bi-instagram"></i></a>
+                    <a href="{{ $item->tiktok }}"><i class="bi bi-tiktok"></i></a>
+                    <a href="{{ $item->yt }}"><i class="bi bi-youtube"></i></a>
                 </div>
                 </div>
             </div>

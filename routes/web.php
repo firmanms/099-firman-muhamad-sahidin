@@ -36,21 +36,47 @@ Route::name('subportal.')->group(function(){
             return view('backend.login');
         })->name("login");
 
-        Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('dashboard');
+    });
+
+    //Autenticate
+    // Route::group(['middleware' => 'auth'], function () {
+        Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+        Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+        Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    // });
+   
+
+
+    //role: Admin
+    Route::middleware(['auth', 'role:Admin'])->group(function () {
+    
+        Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
         Route::get('/admin/publikasi/category', function () {
             return view('backend.livewire.postcategory');
-        })->name("publikasi.category");
+        })->name("admin.publikasi.category");
 
         Route::get('/admin/publikasi/post', function () {
             return view('backend.livewire.post');
-        })->name("publikasi.post");
+        })->name("admin.publikasi.post");
 
         Route::get('/admin/profile', function () {
-            return view('backend.profile');
-        })->name("profile");
+            return view('backend.livewire.profile');
+        })->name("admin.profile");
+    });
 
 
+    //role: User
+    Route::middleware(['auth', 'role:User'])->group(function () {
+        Route::get('/user/dashboard', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('user.dashboard');
+
+        Route::get('/user/publikasi/post', function () {
+            return view('backend.livewire.post');
+        })->name("user.publikasi.post");
+
+        Route::get('/user/profile', function () {
+            return view('backend.livewire.profile');
+        })->name("user.profile");
     });
 
 // });
