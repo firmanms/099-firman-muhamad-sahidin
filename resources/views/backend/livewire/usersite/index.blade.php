@@ -20,14 +20,14 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Kelola <span>| Kategori</span></h5>
-                            <p>Modul untuk mengelola Kategori Postingan</p>
+                            <h5 class="card-title">Kelola <span>| User</span></h5>
+                            <p>Modul untuk mengelola user</p>
 
                             <!-- Browser Default Validation -->
                             @if($updatePost)
-                            @include('backend.livewire.post-category.update')
+                            @include('backend.livewire.usersite.update')
                             @else
-                            @include('backend.livewire.post-category.create')
+                            @include('backend.livewire.usersite.create')
                             @endif
                             <!-- End Browser Default Validation -->
 
@@ -41,7 +41,7 @@
                     <div class="card recent-sales overflow-auto">
 
                         <div class="card-body">
-                            <h5 class="card-title">Daftar <span>| Kategori</span></h5>
+                            <h5 class="card-title">Daftar <span>| User</span></h5>
                             <div class="row mb-3">
                                 <input type="text" class="form-control" placeholder="Cari" wire:model.live="search" />
                             </div>
@@ -49,7 +49,7 @@
                             <table class="table table-sm">
                               <thead>
                                 <tr>
-                                  <th scope="col">#</th>
+                                  {{-- <th scope="col">#</th> --}}
                                   <th scope="col">
                                     {{-- <a href="#" wire:click.prevent="sortBy('name')">Name</a>
                                     @if($sortField === 'name')
@@ -65,9 +65,9 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                @foreach ($posts_category as $item)
+                                @foreach ($usersite as $item)
                                 <tr>
-                                    <th scope="row">{{$item->id}}</th>
+                                    {{-- <th scope="row">{{$item->id}}</th> --}}
                                     <td>{{$item->name}}</td>
                                     <td>
                                         <button wire:click="edit({{ $item->id }})" class="btn btn-primary btn-sm">Edit</button>
@@ -78,7 +78,7 @@
                               </tbody>
                             </table>
                             <!-- End small tables -->
-                            {{ $posts_category->links() }}
+                            {{ $usersite->links() }}
 
                         </div>
 

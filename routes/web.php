@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;
 
 //route portal
@@ -44,12 +45,11 @@ Route::name('subportal.')->group(function(){
         Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
         Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
     // });
-   
 
 
     //role: Admin
     Route::middleware(['auth', 'role:Admin'])->group(function () {
-    
+
         Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
         Route::get('/admin/publikasi/category', function () {
@@ -63,6 +63,12 @@ Route::name('subportal.')->group(function(){
         Route::get('/admin/profile', function () {
             return view('backend.livewire.profile');
         })->name("admin.profile");
+
+        Route::get('/admin/usersite', function () {
+            return view('backend.livewire.usersite');
+        })->name("admin.usersite");
+
+        Route::post('/admin/password/change', [PasswordController::class, 'changePassword'])->name('admin.password.update');
     });
 
 
@@ -77,6 +83,8 @@ Route::name('subportal.')->group(function(){
         Route::get('/user/profile', function () {
             return view('backend.livewire.profile');
         })->name("user.profile");
+
+        Route::post('/user/password/change', [PasswordController::class, 'changePassword'])->name('user.password.update');
     });
 
 // });

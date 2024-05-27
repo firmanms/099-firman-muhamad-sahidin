@@ -71,14 +71,14 @@
           </li>
         </ul>
       </li> End Components Nav -->
-      @if (Auth::user()->role->name === 'admin')
+      @if (Auth::user()->role->name === 'Admin')
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#user-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Pengguna</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="user-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="user-alerts.html">
+            <a href="{{ route('admin.usersite') }}">
               <i class="bi bi-circle"></i><span>Kelola Pengguna</span>
             </a>
           </li>

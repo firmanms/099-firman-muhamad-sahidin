@@ -5,10 +5,11 @@
         <i class="bi bi-phone-fill phone-icon"></i> {{ $sites->telp }}
       </div>
       <div class="social-links d-none d-md-block">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="{{ $sites->tw }}" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="{{ $sites->fb }}" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="{{ $sites->ig }}" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="{{ $sites->tiktok }}" class="tiktok"><i class="bi bi-tiktok"></i></i></a>
+        <a href="{{ $sites->yt }}" class="youtube"><i class="bi bi-youtube"></i></i></a>
       </div>
     </div>
 </section>

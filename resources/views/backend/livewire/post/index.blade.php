@@ -40,40 +40,6 @@
 
                     <div class="card recent-sales overflow-auto">
 
-                        {{-- <div class="card-body">
-                            <h5 class="card-title">Daftar <span>| Kategori</span></h5>
-
-                            <table class="table table-borderless datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Nama</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($posts_category as $item)
-                                    <div wire:key="{{ 'prefix' . $item->id }}">
-                                        <tr>
-                                            <th scope="row">{{ $item->id }}</th>
-                                            <td>{{ $item->name }}</td>
-                                            <td>
-                                                <button wire:click="edit({{ $item->id }})"
-                                                    class="btn btn-primary btn-sm">Edit</button>
-                                                <button  onclick="return confirm('Yakin data ingin dihapus?')" wire:click="destroy({{ $item->id }})"
-                                                    class="btn btn-danger btn-sm">Delete</button>
-                                            </td>
-                                        </tr>
-                                    </div>
-                                    @empty
-                                        <div class="alert alert-danger">
-                                            Data Kategori belum Tersedia.
-                                        </div>
-                                    @endforelse
-                                </tbody>
-                            </table>
-
-                        </div> --}}
                         <div class="card-body">
                             <h5 class="card-title">Daftar <span>| Post</span></h5>
                             <div class="row mb-3">
@@ -103,15 +69,12 @@
                                 <tr>
                                     <th scope="row"><img src="{{ $item->image === null ? asset("frontend/portal/assets/img/portfolio/default.png") : url("storage/".$item->image ."")}}" width="80px"></th>
                                     <td>{{$item->title}}</td>
-                                    <td> <button wire:click="edit({{ $item->id }})"
-                                        class="btn btn-primary btn-sm">Edit</button>
-                                    <button  onclick="return confirm('Yakin data ingin dihapus?')" wire:click="destroy({{ $item->id }})"
-                                        class="btn btn-danger btn-sm">Delete</button></td>
+                                    <td>
+                                        <button wire:click="edit({{ $item->id }})" class="btn btn-primary btn-sm">Edit</button>
+                                        <button wire:click="destroy({{ $item->id }})" wire:confirm="Kamu yakin akan menghapus data ini ?" class="btn btn-danger btn-sm">Delete</button>
+                                    </td>
                                   </tr>
-
                                 @endforeach
-
-
                               </tbody>
                             </table>
                             <!-- End small tables -->

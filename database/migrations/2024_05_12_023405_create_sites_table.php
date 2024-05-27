@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('singkatan');
             $table->string('slug');
-            $table->string('name_leader');
+            $table->string('name_leader')->nullable();
             $table->string('image_leader')->nullable();
             $table->mediumText('greeting')->nullable();
             $table->string('video_profile')->nullable();
