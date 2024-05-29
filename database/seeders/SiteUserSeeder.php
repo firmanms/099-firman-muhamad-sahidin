@@ -48,5 +48,47 @@ class SiteUserSeeder extends Seeder
             'site_id'   => 6,
             'user_id'   => 6,
         ]);
+
+        // Site_user::create([
+        //     'id'        => 7,
+        //     'site_id'   => 7,
+        //     'user_id'   => 7,
+        // ]);
+
+        // Site_user::create([
+        //     'id'        => 8,
+        //     'site_id'   => 8,
+        //     'user_id'   => 8,
+        // ]);
+
+        // Site_user::create([
+        //     'id'        => 9,
+        //     'site_id'   => 9,
+        //     'user_id'   => 9,
+        // ]);
+
+        // Site_user::create([
+        //     'id'        => 10,
+        //     'site_id'   => 10,
+        //     'user_id'   => 10,
+        // ]);
+
+        // Site_user::create([
+        //     'id'        => 11,
+        //     'site_id'   => 11,
+        //     'user_id'   => 11,
+        // ]);
+
+        // Site_user::create([
+        //     'id'        => 12,
+        //     'site_id'   => 12,
+        //     'user_id'   => 12,
+        // ]);
+
+        // Site_user::create([
+        //     'id'        => 13,
+        //     'site_id'   => 13,
+        //     'user_id'   => 13,
+        // ]);
     }
 }

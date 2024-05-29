@@ -2,7 +2,9 @@
 
 namespace App\Livewire\UserSite;
 
+use App\Models\Post;
 use App\Models\Post_category;
+use App\Models\Site_user;
 use App\Models\Sites;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -59,6 +61,7 @@ class Index extends Component
             'usersite' => $this->search === null ?
                         Sites::with('users')->latest()->paginate(5):
                         Sites::with('users')->where('name', 'like', '%' . $this->search . '%')->latest()->paginate(5),
+
         ]);
 
 
@@ -83,18 +86,40 @@ class Index extends Component
     {
         $this->validate();
         try {
-            // Sites::create([
-            //     'name' => $this->sitename,
-            //     'singkatan' => $this->singkatan,
-            //     'slug' => Str::slug($this->singkatan, '-'),
-            // ]);
+            Sites::create([
+                'name' => $this->sitename,
+                'singkatan' => $this->singkatan,
+                'slug' => Str::slug($this->singkatan, '-'),
+            ]);
             User::create([
                 'name' => $this->name,
                 'email' => $this->email,
                 'password' => Hash::make($this->ppassword),
+                'role_id'   => 2,
             ]);
 
-            session()->flash('success', 'Kategori Telah ditambahkan!!');
+            session()->flash('success', 'Usersite Telah ditambahkan!!');
+            $this->resetFields();
+            $this->addPost = false;
+        } catch (\Exception $ex) {
+            session()->flash('error', 'Ada Kesalahan!!');
+        }
+    }
+
+    /**
+     * store the user inputted post data in the posts table
+     * @return void
+     */
+    public function sync($id)
+    {
+        // $this->validate();
+        try {
+            Site_user::create([
+                'site_id' => $id,
+                'user_id' => $id,
+            ]);
+
+            session()->flash('success', 'Sync Sukses!!');
             $this->resetFields();
             $this->addPost = false;
         } catch (\Exception $ex) {
@@ -113,7 +138,7 @@ class Index extends Component
             $site = Sites::findOrFail($id);
             $user = User::findOrFail($id);
             if (!$site) {
-                session()->flash('error', 'Kategori tidak ditemukan');
+                session()->flash('error', 'Usersite tidak ditemukan');
             } else {
                 $this->sitename = $site->name;
                 $this->singkatan = $site->singkatan;
@@ -183,7 +208,9 @@ class Index extends Component
     // }
     public function destroy($id){
         try{
-            Post_category::find($id)->delete();
+            User::find($id)->delete();
+            Sites::find($id)->delete();
+            Post::where('site_id',$id)->delete();
             session()->flash('success',"Category Deleted Successfully!!");
         }catch(\Exception $e){
             session()->flash('error',"Something goes wrong while deleting category!!");

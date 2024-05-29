@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-12">
       <label for="validationDefault03" class="form-label">Password</label>
-      <input type="ppassword" class="form-control @error('ppassword') is-invalid @enderror" id="validationDefault03"
+      <input type="password" class="form-control @error('ppassword') is-invalid @enderror" id="validationDefault03"
              placeholder="Enter password" wire:model="ppassword">
       @error('ppassword')
       <span class="text-danger">{{ $message }}</span>

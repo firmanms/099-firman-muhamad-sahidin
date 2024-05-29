@@ -61,7 +61,7 @@
                                     @endif --}}
                                     Nama
                                   </th>
-                                  <th scope="col">Aksi</th>
+                                  <th scope="col" width="40%">Aksi</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -70,8 +70,15 @@
                                     {{-- <th scope="row">{{$item->id}}</th> --}}
                                     <td>{{$item->name}}</td>
                                     <td>
+                                        @php
+                                        $siteuser=App\Models\Site_user::where('id',$item->id)->first();
+                                        @endphp
+                                        @if(!$siteuser)
+                                        <button wire:click="sync({{ $item->id }})" class="btn btn-success btn-sm">Sync</button>
+                                        @endif
+
                                         <button wire:click="edit({{ $item->id }})" class="btn btn-primary btn-sm">Edit</button>
-                                        <button wire:click="destroy({{ $item->id }})" wire:confirm="Kamu yakin akan menghapus data ini ?" class="btn btn-danger btn-sm">Delete</button>
+                                        <button wire:click="destroy({{ $item->id }})" wire:confirm="Kamu yakin akan menghapus data ini ? User,Site dan Post akan terhapus secara permanen!" class="btn btn-danger btn-sm">Delete</button>
                                     </td>
                                   </tr>
                                 @endforeach
