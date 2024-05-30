@@ -96,7 +96,7 @@ class Index extends Component
                 'title' => $this->title,
                 'slug' => Str::slug($this->title, '-'),
                 'description' => $this->description,
-                'image' => $this->image->store('thumbnail/'.$this->site_id,'public'),
+                'image' => $this->image->store('thumbnail/'.$this->site_id.'/','public'),
                 'date_publish' => $this->date_publish,
             ]);
 
@@ -143,7 +143,7 @@ class Index extends Component
     {
         $this->validate();
         if ($this->image) {
-            $gambar = $this->image->store('thumbnail/'.$this->site_id,'public');
+            $gambar = $this->image->store('thumbnail/'.$this->site_id.'/','public');
         }else{
             $gambar =  $this->oldimage;
         }

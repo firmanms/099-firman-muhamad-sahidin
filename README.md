@@ -3,6 +3,10 @@ Multisite Perangkat Daerah<br>
 Pengembangan website profil perangkat daerah yang memudahkan proses interoperabilitas, one input for many purpose untuk standarisasi website perangkat daerah<br>
 <br>
 <br>
+Syarat
+1. PHP 8.2 / 8.3
+<br>
+<br>
 Installasi
 1. clone repository
 2. Copy .env.example dan rename jadi .env

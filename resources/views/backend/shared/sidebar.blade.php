@@ -34,10 +34,20 @@
               <i class="bi bi-circle"></i><span>Kategori Posting</span>
             </a>
           </li>
+          <li>
+            <a href="{{ route('admin.publikasi.slide') }}" class="{{ request()->routeIs('admin.publikasi.slide') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Slide</span>
+            </a>
+          </li>
           @else
           <li>
             <a href="{{ route('user.publikasi.post') }}" class="{{ request()->routeIs('user.publikasi.post') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Posting</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('user.publikasi.slide') }}" class="{{ request()->routeIs('user.publikasi.slide') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Slide</span>
             </a>
           </li>
           @endif

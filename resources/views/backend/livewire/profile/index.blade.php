@@ -229,7 +229,7 @@
 
                       <div class="row mb-3">
                         <label for="Image_leader" class="col-md-4 col-lg-3 col-form-label">Foto Pimpinan</label>
-                        <div class="col-md-8 col-lg-9">
+                        <div class="col-md-8 col-lg-9" >
                           <input name="image_leader" type="file" class="form-control" id="Image_leader" wire:model="image_leader">
                         </div>
                       </div>
@@ -237,7 +237,9 @@
                       <div class="row mb-3">
                         <label for="Logo" class="col-md-4 col-lg-3 col-form-label">Logo Perangkat Daerah</label>
                         <div class="col-md-8 col-lg-9">
+                            <div wire:ignore>
                           <input name="logo" type="file" class="form-control" id="Logo" wire:model="logo">
+                            </div>
                         </div>
                       </div>
 

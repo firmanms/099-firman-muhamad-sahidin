@@ -5,17 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Post_category;
 use App\Models\Sites;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 
 class SubPortalController extends Controller
 {
     public function index(string $slug)
     {
+        //ambil profile slug site
         $sites = Sites::where('slug',$slug)->firstOrFail();
+        //ambil id dari slug site
         $sitesid = $sites->id;
+        //ambil post berdasarkan id slug site
         $list_post=Post::where('site_id',$sitesid)->orderBy('date_publish','asc')->take(6)->get();
+        //ambil semua slide berdasarkan id slug site
+        $slide=Slide::where('site_id',$sitesid)->orderBy('id','asc')->get();
+        //ambil slide pertama dari portal slug
+        $first_slide=$slide->first();
+        //ambil slide melewati yang pertama dari portal slug
+        $not_first=Slide::where('site_id',$sitesid)->orderBy('id','asc')->skip(1)->take(100)->get();
 
-        return view('frontend.subportal.index',compact('sites','list_post'));
+        return view('frontend.subportal.index',compact('sites','list_post','first_slide','not_first'));
     }
 
     public function blog(string $slug)

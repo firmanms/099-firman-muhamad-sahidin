@@ -41,4 +41,9 @@ class Sites extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function slides(): HasMany
+    {
+        return $this->hasMany(Slide::class);
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Post_category;
 use App\Models\Site_user;
 use App\Models\Sites;
+use App\Models\Slide;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -117,6 +118,12 @@ class Index extends Component
             Site_user::create([
                 'site_id' => $id,
                 'user_id' => $id,
+            ]);
+
+            Slide::create([
+                'site_id'   => $id,
+                'title'     => 'Selamat datang di Website Kami',
+                'subtitle'  => 'Multisite Perangkat Daerah merupakan implementasi dari standardisasi website seluruh perangkat daerah di lingkungan Pemerintah Provinsi Jawa Barat.',
             ]);
 
             session()->flash('success', 'Sync Sukses!!');

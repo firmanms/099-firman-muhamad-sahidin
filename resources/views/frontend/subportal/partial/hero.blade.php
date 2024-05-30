@@ -6,53 +6,28 @@
 
             <div class="carousel-inner" role="listbox">
 
-                <!-- Slide 1 -->
-                <div class="carousel-item active"
-                    style="background-image: url('{{ asset('frontend/subportal/assets/img/slide/slide-1.jpg') }}');">
-                    <div class="carousel-container">
+                    <!-- Slide first -->
+                    <div class="carousel-item active" style="background-image: url('{{ $first_slide->image === null ? asset("frontend/portal/assets/img/slide/default.jpg") : url("storage/".$first_slide->image ."")}}');">
+                        <div class="carousel-container">
                         <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Mamba</span></h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
-                            {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                                More</a> --}}
+                            <h2 class="animate__animated animate__fadeInDown">{{ $first_slide->title }}</h2>
+                            <p class="animate__animated animate__fadeInUp">{{ $first_slide->subtitle }}</p>
+                            {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> --}}
+                        </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item"
-                    style="background-image: url('{{ asset('frontend/subportal/assets/img/slide/slide-2.jpg') }}');">
-                    <div class="carousel-container">
+                @foreach ($not_first as $item)
+                    <!-- Slide not first -->
+                    <div class="carousel-item" style="background-image: url('{{ $item->image === null ? asset("frontend/portal/assets/img/slide/default.jpg") : url("storage/".$item->image ."")}}');">
+                        <div class="carousel-container">
                         <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
-                            {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                                More</a> --}}
+                            <h2 class="animate__animated animate__fadeInDown">{{ $item->title }}</span></h2>
+                            <p class="animate__animated animate__fadeInUp">{{ $item->subtitle }}</p>
+                            {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> --}}
+                        </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item"
-                    style="background-image: url('{{ asset('frontend/subportal/assets/img/slide/slide-3.jpg') }}');">
-                    <div class="carousel-container">
-                        <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
-                            {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                                More</a> --}}
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
 

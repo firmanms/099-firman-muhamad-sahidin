@@ -60,6 +60,14 @@ Route::name('subportal.')->group(function(){
             return view('backend.livewire.post');
         })->name("admin.publikasi.post");
 
+        Route::get('/admin/publikasi/slide', function () {
+            return view('backend.livewire.slide');
+        })->name("admin.publikasi.slide");
+
+        Route::get('/admin/publikasi/page', function () {
+            return view('backend.livewire.page');
+        })->name("admin.publikasi.page");
+
         Route::get('/admin/profile', function () {
             return view('backend.livewire.profile');
         })->name("admin.profile");
@@ -79,6 +87,14 @@ Route::name('subportal.')->group(function(){
         Route::get('/user/publikasi/post', function () {
             return view('backend.livewire.post');
         })->name("user.publikasi.post");
+
+        Route::get('/user/publikasi/slide', function () {
+            return view('backend.livewire.slide');
+        })->name("user.publikasi.slide");
+
+        Route::get('/user/publikasi/page', function () {
+            return view('backend.livewire.page');
+        })->name("user.publikasi.page");
 
         Route::get('/user/profile', function () {
             return view('backend.livewire.profile');

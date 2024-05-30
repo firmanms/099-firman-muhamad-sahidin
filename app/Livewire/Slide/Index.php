@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Slide;
 
 use App\Models\Post;
 use App\Models\Post_category;
+use App\Models\Slide;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,7 +14,7 @@ use Livewire\WithFileUploads;
 class Index extends Component
 {
 
-    public $postId,$site_id,$post_category_id,$title,$slug,$description,$image,$oldimage,$date_publish,$category, $updatePost = false, $addPost = true;
+    public $postId,$site_id,$title,$subtitle,$image,$oldimage, $updatePost = false, $addPost = true;
     public $search = '';
     public $sortField = 'title';
     public $sortAsc = true;
@@ -27,8 +28,7 @@ class Index extends Component
      */
     protected $rules = [
         'title' => 'required',
-        'description' => 'required',
-        'date_publish' => 'required',
+        'subtitle' => 'required',
         'image' => 'nullable|image|mimes:jpg,jpeg,png,svg,gif|max:2048'
     ];
 
@@ -39,10 +39,8 @@ class Index extends Component
     public function resetFields()
     {
         $this->title = '';
-        $this->description = '';
+        $this->subtitle = '';
         $this->image = '';
-        $this->date_publish = '';
-        $this->post_category_id = '';
     }
 
     /**
@@ -52,19 +50,17 @@ class Index extends Component
     public function render()
     {
         if (Auth::user()->role->name === 'Admin'){
-            return view('backend.livewire.post.index',  [
-                'posts' => $this->search === null ?
-                            Post::latest()->paginate(6) :
-                            Post::where('title', 'like', '%' . $this->search . '%')->latest()->paginate(6),
-                'post_category'=>Post_category::all(),
+            return view('backend.livewire.slide.index',  [
+                'slides' => $this->search === null ?
+                            Slide::latest()->paginate(6) :
+                            Slide::where('title', 'like', '%' . $this->search . '%')->latest()->paginate(6),
                 $this->site_id=Auth::user()->id,
             ]);
         }else{
-            return view('backend.livewire.post.index',  [
-                'posts' => $this->search === null ?
-                            Post::where('site_id',Auth::user()->id)->latest()->paginate(6) :
-                            Post::where('site_id',Auth::user()->id)->where('title', 'like', '%' . $this->search . '%')->latest()->paginate(6),
-                'post_category'=>Post_category::all(),
+            return view('backend.livewire.slide.index',  [
+                'slides' => $this->search === null ?
+                            Slide::where('site_id',Auth::user()->id)->latest()->paginate(6) :
+                            Slide::where('site_id',Auth::user()->id)->where('title', 'like', '%' . $this->search . '%')->latest()->paginate(6),
                 $this->site_id=Auth::user()->id,
             ]);
         }
@@ -90,17 +86,14 @@ class Index extends Component
     {
         $this->validate();
         try {
-            Post::create([
+            Slide::create([
                 'site_id' => $this->site_id,
-                'post_category_id' => $this->post_category_id,
                 'title' => $this->title,
-                'slug' => Str::slug($this->title, '-'),
-                'description' => $this->description,
-                'image' => $this->image->store('thumbnail/'.$this->site_id,'public'),
-                'date_publish' => $this->date_publish,
+                'subtitle' => $this->subtitle,
+                'image' => $this->image->store('slide/'.$this->site_id,'public'),
             ]);
 
-            session()->flash('success', 'Postingan Telah ditambahkan!!');
+            session()->flash('success', 'Slide Telah ditambahkan!!');
             $this->resetFields();
             $this->addPost = false;
         } catch (\Exception $ex) {
@@ -116,16 +109,14 @@ class Index extends Component
     public function edit($id)
     {
         try {
-            $posts = Post::findOrFail($id);
-            if (!$posts) {
-                session()->flash('error', 'Postingan tidak ditemukan');
+            $slide = Slide::findOrFail($id);
+            if (!$slide) {
+                session()->flash('error', 'Slide tidak ditemukan');
             } else {
-                $this->title = $posts->title;
-                $this->postId = $posts->id;
-                $this->description = $posts->description;
-                $this->oldimage = $posts->image;
-                $this->date_publish = $posts->date_publish;
-                $this->post_category_id = $posts->post_category_id;
+                $this->postId = $slide->id;
+                $this->title = $slide->title;
+                $this->subtitle = $slide->subtitle;
+                $this->oldimage = $slide->image;
                 $this->updatePost = true;
                 $this->addPost = false;
             }
@@ -143,22 +134,19 @@ class Index extends Component
     {
         $this->validate();
         if ($this->image) {
-            $gambar = $this->image->store('thumbnail/'.$this->site_id,'public');
+            $gambar = $this->image->store('slide/'.$this->site_id,'public');
         }else{
             $gambar =  $this->oldimage;
         }
 
         try {
-            Post::whereId($this->postId)->update([
+            Slide::whereId($this->postId)->update([
                 // 'site_id' => $this->site_id,
-                'post_category_id' => $this->post_category_id,
                 'title' => $this->title,
-                'slug' => Str::slug($this->title, '-'),
-                'description' => $this->description,
+                'subtitle' => $this->subtitle,
                 'image' => $gambar,
-                'date_publish' => $this->date_publish,
             ]);
-            session()->flash('success', 'Postingan Telah diubah!!');
+            session()->flash('success', 'Slide Telah diubah!!');
             $this->resetFields();
             $this->updatePost = false;
         } catch (\Exception $ex) {
@@ -178,15 +166,15 @@ class Index extends Component
     }
 
     /**
-     * delete specific post data from the posts table
+     * delete specific post data from the slide table
      * @param mixed $id
      * @return void
      */
     public function destroy($id)
     {
         try {
-            Post::find($id)->delete();
-            session()->flash('success', "Postingan telah dihapus!!");
+            Slide::find($id)->delete();
+            session()->flash('success', "Slide telah dihapus!!");
         } catch (\Exception $e) {
             session()->flash('error', "Ada Kesalahan!!");
         }

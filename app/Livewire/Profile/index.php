@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class Index extends Component
 {
 
-    public 
+    public
     $site_id,
     $name,
     $singkatan,
@@ -35,7 +35,7 @@ class Index extends Component
     $logo,
     $maps,
     $oldlogo,
-    $postId, 
+    $postId,
     $updatePost = false,
     $addPost = true;
     public $search = '';
@@ -92,7 +92,7 @@ class Index extends Component
             $this->maps=$profile->maps,
             $this->oldlogo=$profile->logo,
             $this->oldimage_leader=$profile->image_leader,
-            
+
 
         ]);
 
@@ -141,12 +141,12 @@ class Index extends Component
     {
         $this->validate();
         if ($this->image_leader) {
-            $gambar_leader = $this->image_leader->store('profile','public');
+            $gambar_leader = $this->image_leader->store('profile/'.$this->site_id,'public');
         }else{
             $gambar_leader =  $this->oldimage_leader;
         }
         if ($this->logo) {
-            $gambar_logo = $this->logo->store('profile','public');
+            $gambar_logo = $this->logo->store('profile/'.$this->site_id,'public');
         }else{
             $gambar_logo =  $this->oldlogo;
         }
@@ -155,7 +155,7 @@ class Index extends Component
                 'name'          =>$this->name,
                 'singkatan'     =>$this->singkatan,
                 'slug'          => Str::slug($this->singkatan, '-'),
-                'name_leader'   =>$this->name_leader,                
+                'name_leader'   =>$this->name_leader,
                 'image_leader'  =>$gambar_leader,
                 'greeting'      =>$this->greeting,
                 'video_profile' =>$this->video_profile,
@@ -179,5 +179,5 @@ class Index extends Component
         }
     }
 
-    
+
 }
