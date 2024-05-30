@@ -1,6 +1,8 @@
 Firman Muhamad Sahidin-GROUP 4<br>
 Multisite Perangkat Daerah<br>
 Pengembangan website profil perangkat daerah yang memudahkan proses interoperabilitas, one input for many purpose untuk standarisasi website perangkat daerah<br>
+Link Paparan :<br>
+<a href="https://www.canva.com/design/DAGGfv3w9d8/k6rdWZCnhRAchcxH6t3wLA/edit?utm_content=DAGGfv3w9d8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Multisite Perangkat Daerah</a>
 <br>
 <br>
 Syarat
