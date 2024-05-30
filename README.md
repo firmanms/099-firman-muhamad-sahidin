@@ -7,16 +7,16 @@ Syarat
 1. PHP 8.2 / 8.3
 <br>
 <br>
-Installasi
-1. clone repository
-2. Copy .env.example dan rename jadi .env
-3. Sesuaikan user, password dan nama database di .env
-4. buka terminal dan arahkan ke folder project
-5. ketik php artisan key:generate
-6. ketik composer install
-7. ketik php artisan storage:link
-8. ketik php artisan migrate:fresh --seed
-9. ketik php artisan serve
+Installasi<br>
+1. clone repository<br>
+2. Copy .env.example dan rename jadi .env<br>
+3. Sesuaikan user, password dan nama database di .env<br>
+4. buka terminal dan arahkan ke folder project<br>
+5. ketik php artisan key:generate<br>
+6. ketik composer install<br>
+7. ketik php artisan storage:link<br>
+8. ketik php artisan migrate:fresh --seed<br>
+9. ketik php artisan serve<br>
 
 
 
