@@ -12,20 +12,11 @@ Route::name('portal.')->group(function(){
 
 //route subportal
 Route::name('subportal.')->group(function(){
+
     Route::get('/{slug}', [App\Http\Controllers\SubPortalController::class, 'index'])->name('index');
-
-    Route::get('/skpd', function () {
-        return view('frontend.subportal.index');
-    })->name("index2");
-
     Route::get('/{slug}/blog', [App\Http\Controllers\SubPortalController::class, 'blog'])->name('blog');
     Route::get('/{slug}/blog/{slugpost}', [App\Http\Controllers\SubPortalController::class, 'showpost'])->name('showpost');
     Route::get('/{slug}/page/{slugpage}', [App\Http\Controllers\SubPortalController::class, 'showpage'])->name('showpage');
-
-
-    Route::get('/{slug}/page/profil', function () {
-        return view('frontend.subportal.page');
-    })->name("pageprofil");
 
 });
 
